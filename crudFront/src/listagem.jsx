@@ -1,24 +1,17 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "./axiosConfig";
 
 function ProdutosLista() {
-  const [produtos, setProdutos] = useState([
-    {
-      id: 1,
-      codigo: "001",
-      nome: "Produto Exemplo",
-      descricao: "Esta é a descrição do produto exemplo.",
-      imagem: "link_da_imagem_aqui",
-    },
-  ]);
+  const [produtos, setProdutos] = useState([]);
 
-  // const fetchProdutos = async () => {
-  //   const response = await axios.get("");
-  // };
+  const fetchProdutos = async () => {
+    const response = await axios.get("/produtos");
+    setProdutos(response.data)
+  };
 
-  // useEffect(() => {
-  //   fetchProdutos();
-  // }, []);
+  useEffect(() => {
+    fetchProdutos();
+  }, []);
 
   return (
     <div className="container-xl">

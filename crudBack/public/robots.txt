@@ -1,2 +1,2 @@
-User-agent: *
+Produtos-agent: *
 Disallow:
